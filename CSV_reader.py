@@ -1,5 +1,5 @@
 import csv
-from datatime import datetime
+from datetime import datetime
 
 print("---------------------------")
 print(dir(csv))
@@ -15,14 +15,25 @@ reader = csv.reader(file)
 header = next(reader)  # the first lines is the header
 
 data = []
-for row in reader
+for row in reader:
     # row = [Date, Open, High, Low, Close, Volume, Adj. Close]
-    date = datetime.strptime(row[0], '%D/%M/%Y'
-    print(header)
-    print(data[0])
+    date = datetime.strptime(row[0], '%m/%d/%Y')
+    open_price = float(row[1])
+    high = float(row[2])
+    low = float(row[3])
+    close = float(row[4])
+    volume = int(row[5])
+    adj_close = float(row[6])
 
-    row = int(input('Row: '))
+    data.append([date, open_price, high, low, close, volume, adj_close])
 
-    print(data[row])
+# calculate and output stock value csv
+returns_path = "D:\Python Applications\g_returns.csv
+file = open(returns_path, 'w')
+writer = csv.writer(file)
+writer.writerow(["Date", "Return"])
 
-    print(max(data))
+for i in range(len(data) - 1):
+    todays_row = data[i]
+    todays_date = todays_row[0]
+    todays_price = todays_row[-1]
