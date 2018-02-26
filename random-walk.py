@@ -13,7 +13,7 @@ def random_walk(n):
     return (X, Y)
 
 
-number_of_walks = 10000
+number_of_walks = 30000
 
 for walk_length in range(1, 31):
     no_transport = 0
@@ -25,4 +25,4 @@ for walk_length in range(1, 31):
             # end if
     # end for
     no_transport_percentage = float(no_transport) / number_of_walks
-    print("Walk Size=", walk_length, " / % No Transport = ", 100 * no_transport_percentage)
+    print("Walk Size=", walk_length, " / % Journeys less than 4 blocks = ", 100 * no_transport_percentage)
