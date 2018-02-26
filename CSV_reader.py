@@ -37,3 +37,9 @@ for i in range(len(data) - 1):
     todays_row = data[i]
     todays_date = todays_row[0]
     todays_price = todays_row[-1]
+    yesterdays_row = data[i - 1]
+    yesterdays_price = yesterdays_row[-1]
+
+    daily_return = (todays_price - yesterdays_price) / yesterdays_price
+    formatted_date = todays_date.strptime('%m/%d/%Y')
+    writer.writerow([formatted_date, daily_return])
