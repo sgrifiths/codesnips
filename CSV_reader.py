@@ -28,7 +28,7 @@ for row in reader:
     data.append([date, open_price, high, low, close, volume, adj_close])
 
 # calculate and output stock value csv
-returns_path = "D:\Python Applications\g_returns.csv
+returns_path = "D:\Python Applications\codesnips\g_returns.csv"
 file = open(returns_path, 'w')
 writer = csv.writer(file)
 writer.writerow(["Date", "Return"])
@@ -41,5 +41,5 @@ for i in range(len(data) - 1):
     yesterdays_price = yesterdays_row[-1]
 
     daily_return = (todays_price - yesterdays_price) / yesterdays_price
-    formatted_date = todays_date.strptime('%m/%d/%Y')
+    formatted_date = todays_date.strftime('%m/%d/%Y')
     writer.writerow([formatted_date, daily_return])
