@@ -8,6 +8,7 @@ print(dir(csv))
 print("---------------------------")
 print(dir(dict))
 print("---------------------------")
+print(dir(datetime))
 
 path = "D:\Python Applications\codesnips\gsd.csv"
 
