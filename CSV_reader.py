@@ -1,5 +1,7 @@
 import csv
 from datetime import datetime
+from datediff import cal_days_diff
+
 
 print("---------------------------")
 print(dir(csv))
@@ -39,7 +41,9 @@ for i in range(len(data) - 1):
     todays_price = todays_row[-1]
     yesterdays_row = data[i - 1]
     yesterdays_price = yesterdays_row[-1]
+    yesterdays_date = yesterdays_row[0]
 
     daily_return = (todays_price - yesterdays_price) / yesterdays_price
     formatted_date = todays_date.strftime('%m/%d/%Y')
     writer.writerow([formatted_date, daily_return])
+    print(cal_days_diff(todays_date,yesterdays_date,'%m/%d/%Y'))
